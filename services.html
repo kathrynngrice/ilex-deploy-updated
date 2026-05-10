@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="site.css">
+<style>
+  .svc { display: grid; grid-template-columns: 280px 1fr; gap: var(--space-7); padding: var(--space-7) 0; border-top: 1px solid var(--line-soft); }
+  .svc:first-of-type { border-top: 0; padding-top: var(--space-5); }
+  .svc .meta .price { font-family: var(--font-mono); font-size: var(--t-small); color: var(--fg-3); margin-bottom: var(--space-3); }
+  .svc h2 { margin: 0 0 var(--space-4); }
+  .svc ul { padding-left: 1.1em; color: var(--fg-2); }
+  .svc ul li { margin-bottom: var(--space-2); }
+  @media (max-width: 800px) { .svc { grid-template-columns: 1fr; } }
+
+  .first-session { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
+  .step-card { padding: var(--space-5); border-radius: var(--r-md); background: var(--surface-card); border: 1px solid var(--line-soft); }
+  .step-card .num { font-family: var(--font-mono); font-size: var(--t-caption); color: var(--accent-primary); }
+  .step-card h4 { margin: var(--space-2) 0 var(--space-2); font-weight: var(--w-medium); }
+  .step-card p { font-size: var(--t-small); color: var(--fg-2); margin: 0; }
+  @media (max-width: 800px) { .first-session { grid-template-columns: 1fr; } }
+
+  .booking { background: var(--surface-card); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: var(--space-8); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; }
+  @media (max-width: 800px) { .booking { grid-template-columns: 1fr; } }
+
+  form.booking-form { display: flex; flex-direction: column; gap: var(--space-4); }
+  form.booking-form label { font-size: var(--t-caption); text-transform: uppercase; letter-spacing: var(--track-wide); color: var(--fg-3); display: block; margin-bottom: 6px; }
+  form.booking-form input, form.booking-form textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line-medium); border-radius: var(--r-sm); background: var(--bark-50); font-family: inherit; font-size: var(--t-small); color: var(--fg-1); }
+  form.booking-form textarea { min-height: 90px; resize: vertical; }
+  form.booking-form input:focus, form.booking-form textarea:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(111, 129, 92, 0.18); }
+</style>
+</head>
+<body>
+<div data-nav></div>
+
+<main>
+  <div class="container">
+    <section style="padding-bottom: var(--space-6);">
+      <span class="eyebrow">Services</span>
+      <h1 style="margin-top: var(--space-4); max-width: 20ch;">Two ways to work together.</h1>
+      <p class="lead" style="margin-top: var(--space-5); max-width: 56ch;">Both start with the same 30-minute discovery call. From there, the rhythm depends on what you're carrying.</p>
+    </section>
+
+    <section style="padding-top: var(--space-5);">
+      <div class="svc">
+        <div class="meta">
+          <div class="price">$90 / session · 60 minutes</div>
+          <img src="../assets/illustrations/fern-unfurling.svg" alt="" style="width: 80px; opacity: 0.7;">
+        </div>
+        <div>
+          <h2>1:1 Coaching</h2>
+          <p>My core practice. We meet every 1-2 weeks for an hour. You set our focus. We map what's true, what's possible, and the what next small move looks like. Between sessions, you simmer on a small experiment or reflection.</p>
+          <ul>
+            <li>No session minimum, but change takes time.</li>
+            <li>Video, phone, or walk-and-talk by mutual preference.</li>
+            <li>Voice notes between sessions when something comes up.</li>
+            <li>Sliding scale available — ask about pricing flexibility.</li>
+          </ul>
+          <a href="#book" class="btn btn-primary" style="margin-top: var(--space-4);">Begin with a discovery call →</a>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="meta">
+          <div class="price"> Priced individually </div>
+          <img src="../assets/illustrations/vine-climbing.svg" alt="" style="width: 80px; opacity: 0.7;">
+        </div>
+        <div>
+          <h2>Immunity to Change Workshops</h2>
+          <p>Ideal for teams or groups facing transitions and change. We sit with the possibilities of change and learn from our resistance to it. Each participant walks away with new self-compassion and new experiments that will, with time, overturn their immunities to change.  </p>
+          <ul>
+            <li>1.5-3 hours, with a break in the middle.</li>
+            <li>Pre-work: a short written reflection.</li>
+          </ul>
+          <a href="#book" class="btn btn-secondary" style="margin-top: var(--space-4);">Ask about an workshop →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reflect">
+      <div class="label">Before we begin</div>
+      <p>Start with what's true. We'll discover what's just out of view.</p>
+    </section>
+
+    <section>
+      <span class="overline">First session, what to expect</span>
+      <h2 style="margin-top: var(--space-3); max-width: 22ch;">A 30-minute discovery call to assess fit and chemistry.</h2>
+      <div class="first-session">
+        <div class="step-card">
+          <div class="num">01</div>
+          <h4>You write a sentence or two.</h4>
+          <p>About what's bringing you to coaching. No essay required - a few sentences is plenty.</p>
+        </div>
+        <div class="step-card">
+          <div class="num">02</div>
+          <h4>We talk for 30 minutes.</h4>
+          <p>Time for us to explore what's true for you, and for you to ask about my coaching process. By the end, the shape of the work usually comes into focus.</p>
+        </div>
+        <div class="step-card">
+          <div class="num">03</div>
+          <h4>You sit with it.</h4>
+          <p>No same-day decisions. I'd rather you take a few days and notice what stays with you.</p>
+        </div>
+        <div class="step-card">
+          <div class="num">04</div>
+          <h4>If yes, we begin.</h4>
+          <p>If not, I'll often have someone to recommend. </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="book">
+      <div class="booking">
+        <div>
+          <span class="overline">Begin</span>
+          <h2 style="margin-top: var(--space-3);">Book a discovery call.</h2>
+          <p>Drop a note here, or email <a href="kathrynngrice@gmail.com">kathrynngrice@gmail.com</a>. I read everything within two business days.</p>
+          <img src="../assets/illustrations/seedling.svg" alt="" style="width: 120px; margin-top: var(--space-5); opacity: 0.7;">
+        </div>
+        <form class="booking-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you. I\'ll be in touch.';">
+          <div>
+            <label for="bname">Your name</label>
+            <input id="bname" type="text" required>
+          </div>
+          <div>
+            <label for="bemail">Email</label>
+            <input id="bemail" type="email" required>
+          </div>
+          <div>
+            <label for="bnote">A sentence or two — what's bringing you here?</label>
+            <textarea id="bnote" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send →</button>
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div data-footer></div>
+<script src="image-slot.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

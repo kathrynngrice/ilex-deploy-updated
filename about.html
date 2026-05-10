@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../colors_and_type.css">
+<link rel="stylesheet" href="site.css">
+<style>
+  .about-hero { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-8); align-items: center; padding: var(--space-9) 0; }
+  .about-hero .portrait { aspect-ratio: 4/5; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--line-soft); box-shadow: var(--shadow-leaf); }
+  @media (max-width: 800px) { .about-hero { grid-template-columns: 1fr; } }
+
+  .credentials { background: var(--surface-card); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: var(--space-7); }
+  .credentials h3 { margin-top: 0; font-weight: var(--w-medium); }
+  .cred-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+  .cred-list li { display: grid; grid-template-columns: 100px 1fr; gap: var(--space-5); padding: var(--space-3) 0; border-top: 1px solid var(--line-soft); }
+  .cred-list li:first-child { border-top: 0; }
+  .cred-list .year { font-family: var(--font-mono); font-size: var(--t-caption); color: var(--fg-3); padding-top: 4px; }
+  .cred-list .what strong { display: block; font-weight: var(--w-medium); margin-bottom: 2px; }
+  .cred-list .what span { color: var(--fg-3); font-size: var(--t-small); }
+
+  .training { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-5); margin-top: var(--space-7); }
+  .training .card { background: transparent; box-shadow: none; }
+  .training .card h4 { margin: 0 0 var(--space-2); font-weight: var(--w-medium); }
+  .training .card p { color: var(--fg-2); margin: 0; }
+  .training .card .tag { font-family: var(--font-mono); font-size: var(--t-caption); color: var(--accent-primary); margin-bottom: var(--space-3); }
+  @media (max-width: 800px) { .training { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div data-nav></div>
+
+<main>
+  <div class="container">
+    <section class="about-hero">
+      <div class="portrait">
+        <image-slot id="about-portrait" shape="rounded" radius="20" placeholder="Portrait of Kathryn"></image-slot>
+      </div>
+      <div>
+        <span class="eyebrow">About</span>
+        <h1 style="margin-top: var(--space-4);">Kathryn Noe Grice.</h1>
+        <p class="lead" style="margin-top: var(--space-5);">A leadership coach trained in adult development frameworks and research. Expert in helping people see themselves more clearly and explore their potential more courageously.</p>
+        <p style="margin-top: var(--space-5);">Kathryn works with adults in the middle of transitions — new roles, returning to work, pivoting without a career pathway, or building something of their own. Grounded, curious, and patient.</p>
+        <div class="cta-row" style="margin-top: var(--space-6);">
+          <a href="services.html#book" class="btn btn-primary">Book a discovery call →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reflect">
+      <div class="label">A note on approach</div>
+      <p>Growth happens in stages, not leaps. Most of the work is noticing what's already there.</p>
+    </section>
+
+    <section>
+      <div class="grid-2" style="align-items: start;">
+        <div>
+          <span class="overline">Credentials</span>
+          <h2 style="margin-top: var(--space-3); max-width: 18ch;">Trained where the research is taken seriously.</h2>
+          <p>Adult development research underpins the work — particularly Connstructive Developmental Theory (Kegan, HGSE). Coaching techniques are informed by Internal Family Systems and somatic methods.</p>
+        </div>
+        <div class="credentials">
+          <h3>Education & certifications</h3>
+          <ul class="cred-list">
+            <li>
+              <div class="year">2025-2026</div>
+              <div class="what"><strong>Coaching Leaders for a Complex World, PCC-level coaching certification program (in progress)</strong><span>Cultivating Leadership — Jennifer Garvey Berger</span></div>
+            </li>
+            <li>
+              <div class="year">2026</div>
+              <div class="what"><strong>Qualified Map Facilitator in Immunity to Change</strong><span>Minds at Work - Bob Kegan & Lisa Laskow Lahey</span></div>
+            </li>
+            <li>
+              <div class="year">2022-2024</div>
+              <div class="what"><strong>M.P.P. Social & Urban Policy, certificate in Management, Leadership & Decision Sciences</strong><span>Harvard Kennedy School</span></div>
+            </li>
+            <li>
+              <div class="year">2017</div>
+              <div class="what"><strong>B.A. Statistics</strong><span>Williams College</span></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <span class="overline">Continuing study</span>
+      <h2 style="margin-top: var(--space-3);">My work keeps developing.</h2>
+      <div class="training">
+        <div class="card">
+          <div class="tag">Frameworks</div>
+          <h4>Constructive Developmental Theory</h4>
+          <p>Stages of meaning-making — how adults grow more capable of holding complexity over time.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Practice</div>
+          <h4>Internal Family Systems</h4>
+          <p>Working with the parts of us that show up to protect, manage, and create. Trauma-informed.</p>
+        </div>
+        <div class="card">
+          <div class="tag">Practice</div>
+          <h4>Somatic & embodiment</h4>
+          <p>Attention to the body as data. Slowing down enough to notice what's actually happening.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="card card-canopy">
+        <span class="overline" style="color: var(--sage-200);">Ethics</span>
+        <p>Practice held to ICF Code of Ethics. Confidentiality is structural, not optional. Referrals to therapy or other modalities offered when the work calls for them.</p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div data-footer></div>
+<script src="image-slot.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
