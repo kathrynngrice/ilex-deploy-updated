@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Services — Ilex Garden</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="colors_and_type.css">
+<link rel="stylesheet" href="site.css">
+<style>
+  .svc { display: grid; grid-template-columns: 280px 1fr; gap: var(--space-7); padding: var(--space-7) 0; border-top: 1px solid var(--line-soft); }
+  .svc:first-of-type { border-top: 0; padding-top: var(--space-5); }
+  .svc .meta .price { font-family: var(--font-mono); font-size: var(--t-small); color: var(--fg-3); margin-bottom: var(--space-3); }
+  .svc h2 { margin: 0 0 var(--space-4); }
+  .svc ul { padding-left: 1.1em; color: var(--fg-2); }
+  .svc ul li { margin-bottom: var(--space-2); }
+  @media (max-width: 800px) { .svc { grid-template-columns: 1fr; } }
+
+  .first-session { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin-top: var(--space-6); }
+  .step-card { padding: var(--space-5); border-radius: var(--r-md); background: var(--surface-card); border: 1px solid var(--line-soft); }
+  .step-card .num { font-family: var(--font-mono); font-size: var(--t-caption); color: var(--accent-primary); }
+  .step-card h4 { margin: var(--space-2) 0 var(--space-2); font-weight: var(--w-medium); }
+  .step-card p { font-size: var(--t-small); color: var(--fg-2); margin: 0; }
+  @media (max-width: 800px) { .first-session { grid-template-columns: 1fr; } }
+
+  .booking { background: var(--surface-card); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: var(--space-8); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; }
+  @media (max-width: 800px) { .booking { grid-template-columns: 1fr; } }
+
+  form.booking-form { display: flex; flex-direction: column; gap: var(--space-4); }
+  form.booking-form label { font-size: var(--t-caption); text-transform: uppercase; letter-spacing: var(--track-wide); color: var(--fg-3); display: block; margin-bottom: 6px; }
+  form.booking-form input, form.booking-form textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line-medium); border-radius: var(--r-sm); background: var(--bark-50); font-family: inherit; font-size: var(--t-small); color: var(--fg-1); }
+  form.booking-form textarea { min-height: 90px; resize: vertical; }
+  form.booking-form input:focus, form.booking-form textarea:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(111, 129, 92, 0.18); }
+</style>
+</head>
+<body>
+<div data-nav></div>
+
+<main>
+  <div class="container">
+    <section style="padding-bottom: var(--space-6);">
+      <span class="eyebrow">Services</span>
+      <h1 style="margin-top: var(--space-4); max-width: 20ch;">Two ways to work together.</h1>
+      <p class="lead" style="margin-top: var(--space-5); max-width: 56ch;">Both start with the same 30-minute discovery call. From there, the rhythm depends on what you're carrying.</p>
+    </section>
+
+    <section style="padding-top: var(--space-5);">
+      <div class="svc">
+        <div class="meta">
+          <div class="price">$320 / session · 60 minutes</div>
+          <img src="assets/illustrations/fern-unfurling.svg" alt="" style="width: 80px; opacity: 0.7;">
+        </div>
+        <div>
+          <h2>Ongoing 1:1 coaching</h2>
+          <p>The core of the practice. We meet every two weeks for an hour. Between sessions, you carry one small experiment — sized so you can actually do it.</p>
+          <ul>
+            <li>Six-session minimum (three months) — change takes time.</li>
+            <li>Video, phone, or walk-and-talk by mutual preference.</li>
+            <li>Voice notes between sessions when something comes up.</li>
+            <li>Sliding scale available — ask.</li>
+          </ul>
+          <a href="#book" class="btn btn-primary" style="margin-top: var(--space-4);">Begin with a discovery call →</a>
+        </div>
+      </div>
+
+      <div class="svc">
+        <div class="meta">
+          <div class="price">$1,400 · half-day intensive</div>
+          <img src="assets/illustrations/vine-climbing.svg" alt="" style="width: 80px; opacity: 0.7;">
+        </div>
+        <div>
+          <h2>Transition intensive</h2>
+          <p>A focused half-day for people in the middle of a specific decision — a job change, a return to work, a chapter closing. We map what's true, what's possible, and what the next small move looks like.</p>
+          <ul>
+            <li>Four hours, with a long break in the middle.</li>
+            <li>Pre-work: a short written reflection.</li>
+            <li>One follow-up session two weeks later, included.</li>
+            <li>Best as a standalone or after we've worked together for a while.</li>
+          </ul>
+          <a href="#book" class="btn btn-secondary" style="margin-top: var(--space-4);">Ask about an intensive →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="reflect">
+      <div class="label">Before we begin</div>
+      <p>Start with what's already true. We'll find the rest from there.</p>
+    </section>
+
+    <section>
+      <span class="overline">First session, what to expect</span>
+      <h2 style="margin-top: var(--space-3); max-width: 22ch;">A 30-minute discovery call, no pressure either way.</h2>
+      <div class="first-session">
+        <div class="step-card">
+          <div class="num">01</div>
+          <h4>You write a sentence or two.</h4>
+          <p>About what's bringing you to coaching. No essay required. Two lines is plenty.</p>
+        </div>
+        <div class="step-card">
+          <div class="num">02</div>
+          <h4>We talk for 30 minutes.</h4>
+          <p>Mostly you talk; I listen and ask. By the end, the shape of the work usually shows itself.</p>
+        </div>
+        <div class="step-card">
+          <div class="num">03</div>
+          <h4>You sit with it.</h4>
+          <p>No same-day decisions. I'd rather you take a few days and notice what stays with you.</p>
+        </div>
+        <div class="step-card">
+          <div class="num">04</div>
+          <h4>If yes, we begin.</h4>
+          <p>If not, I'll often have someone to recommend. Either way, the call is yours to keep.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="book">
+      <div class="booking" style="grid-template-columns: 1fr;">
+        <div>
+          <span class="overline">Begin</span>
+          <h2 style="margin-top: var(--space-3);">Book a discovery call.</h2>
+          <p>Pick a time that works — or email <a href="mailto:YOUR-EMAIL@gmail.com">YOUR-EMAIL@gmail.com</a>. I read everything within two business days.</p>
+          <img src="assets/illustrations/seedling.svg" alt="" style="width: 120px; margin-top: var(--space-5); opacity: 0.7;">
+          <div style="margin-top: var(--space-6);">
+            <a href="https://scheduler.zoom.us/YOUR-ZOOM-LINK" target="_blank" rel="noopener" class="btn btn-primary">Book a time →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<div data-footer></div>
+<script src="image-slot.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

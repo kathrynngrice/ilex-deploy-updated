@@ -1,0 +1,7 @@
+# Design system source files (not for deployment)
+site/
+preview/
+fonts/
+*.zip
+.image-slots.state.json
+.DS_Store

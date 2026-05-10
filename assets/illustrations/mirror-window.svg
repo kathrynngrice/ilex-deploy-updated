@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 280" fill="none">
+  
+  <defs>
+    <clipPath id="mirrorArch">
+      <path d="M30 244 L 30 90 A 60 60 0 0 1 150 90 L 150 244 Z"></path>
+    </clipPath>
+    <clipPath id="windowArch">
+      <path d="M170 244 L 170 90 A 60 60 0 0 1 290 90 L 290 244 Z"></path>
+    </clipPath>
+    <linearGradient id="skyGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dde6ed"></stop>
+      <stop offset="60%" stop-color="#e6dcc4"></stop>
+      <stop offset="100%" stop-color="#a8b894" stop-opacity="0.5"></stop>
+    </linearGradient>
+    <linearGradient id="mirrorGrad" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#e8e4d4"></stop>
+      <stop offset="100%" stop-color="#bac8d6" stop-opacity="0.5"></stop>
+    </linearGradient>
+  </defs>
+
+  <rect width="320" height="280" fill="#f4ede0"></rect>
+
+  
+  
+  <path d="M26 248 L 26 90 A 64 64 0 0 1 154 90 L 154 248 Z" fill="#4a3e2c"></path>
+  <g clip-path="url(#mirrorArch)">
+    <rect x="30" y="30" width="120" height="214" fill="url(#mirrorGrad)"></rect>
+    <ellipse cx="90" cy="240" rx="48" ry="12" fill="#a8b894" fill-opacity="0.32"></ellipse>
+    
+    <path d="M90 240 C 88 218, 92 196, 90 174 C 88 152, 94 134, 92 116 C 90 100, 94 88, 92 74" stroke="#586848" stroke-width="1.4" stroke-linecap="round" fill="none"></path>
+    <g stroke="#586848" stroke-width="1" stroke-linecap="round" fill="none">
+      <path d="M90 224 C 78 220, 68 212, 64 200 C 62 192, 66 188, 72 192"></path>
+      <path d="M90 200 C 102 196, 112 188, 116 178 C 118 170, 114 166, 108 170"></path>
+      <path d="M90 174 C 78 170, 70 162, 68 152 C 66 144, 70 142, 76 146"></path>
+      <path d="M91 150 C 102 146, 110 138, 112 128 C 114 120, 110 116, 104 120"></path>
+      <path d="M92 124 C 84 118, 80 110, 84 104 C 88 98, 94 102, 92 110"></path>
+      <path d="M92 96 C 100 92, 104 86, 102 80 C 100 74, 94 76, 94 82"></path>
+    </g>
+    <g fill="#a8b894" fill-opacity="0.6" stroke="#586848" stroke-width="0.5" stroke-opacity="0.55">
+      <ellipse cx="84" cy="216" rx="3" ry="1.2" transform="rotate(-30 84 216)"></ellipse>
+      <ellipse cx="98" cy="186" rx="3" ry="1.2" transform="rotate(25 98 186)"></ellipse>
+      <ellipse cx="84" cy="160" rx="3" ry="1.2" transform="rotate(-25 84 160)"></ellipse>
+      <ellipse cx="98" cy="134" rx="3" ry="1.2" transform="rotate(28 98 134)"></ellipse>
+    </g>
+    <ellipse cx="86" cy="74" rx="22" ry="14" fill="#f3dcc8" fill-opacity="0.5"></ellipse>
+  </g>
+  
+  <path d="M30 244 L 30 90 A 60 60 0 0 1 150 90 L 150 244 Z" fill="none" stroke="#4a3e2c" stroke-width="0.8" stroke-opacity="0.6"></path>
+
+  
+  <rect x="22" y="248" width="136" height="5" fill="#4a3e2c"></rect>
+
+  
+  <path d="M166 248 L 166 90 A 64 64 0 0 1 294 90 L 294 248 Z" fill="#4a3e2c"></path>
+  <g clip-path="url(#windowArch)">
+    <rect x="170" y="30" width="120" height="214" fill="url(#skyGrad)"></rect>
+    
+    <circle cx="252" cy="80" r="10" fill="#f3dcc8" fill-opacity="0.95"></circle>
+    <circle cx="252" cy="80" r="18" fill="#f3dcc8" fill-opacity="0.32"></circle>
+    
+    <g fill="#6f815c" fill-opacity="0.5" stroke="#586848" stroke-opacity="0.4" stroke-width="0.6">
+      <circle cx="190" cy="150" r="14"></circle>
+      <circle cx="210" cy="144" r="16"></circle>
+      <circle cx="232" cy="152" r="14"></circle>
+      <circle cx="254" cy="148" r="14"></circle>
+      <circle cx="276" cy="152" r="12"></circle>
+      <circle cx="200" cy="170" r="12"></circle>
+      <circle cx="226" cy="172" r="14"></circle>
+      <circle cx="254" cy="170" r="12"></circle>
+    </g>
+    
+    <g stroke="#586848" stroke-width="1.2" stroke-opacity="0.4" stroke-linecap="round" fill="none">
+      <path d="M200 240 C 198 210, 202 180, 200 156"></path>
+      <path d="M228 240 C 230 210, 226 180, 228 154"></path>
+      <path d="M256 240 C 254 210, 258 180, 256 158"></path>
+    </g>
+    
+    <g stroke="#586848" stroke-width="0.6" stroke-opacity="0.55" fill="none">
+      <path d="M212 156 C 214 180, 210 202, 212 224"></path>
+      <path d="M242 160 C 244 184, 240 206, 242 228"></path>
+    </g>
+    <g fill="#bac8d6" fill-opacity="0.78" stroke="#586848" stroke-width="0.4" stroke-opacity="0.5">
+      <circle cx="210" cy="162" r="1.8"></circle><circle cx="214" cy="166" r="1.8"></circle>
+      <circle cx="210" cy="176" r="1.6"></circle><circle cx="214" cy="186" r="1.4"></circle>
+      <circle cx="211" cy="196" r="1.2"></circle><circle cx="213" cy="206" r="1"></circle>
+      <circle cx="240" cy="166" r="1.8"></circle><circle cx="244" cy="172" r="1.6"></circle>
+      <circle cx="240" cy="182" r="1.4"></circle><circle cx="244" cy="192" r="1.2"></circle>
+      <circle cx="242" cy="202" r="1"></circle>
+    </g>
+    
+    <line x1="170" y1="160" x2="290" y2="160" stroke="#4a3e2c" stroke-width="2" stroke-opacity="0.85"></line>
+    <line x1="230" y1="30" x2="230" y2="244" stroke="#4a3e2c" stroke-width="2" stroke-opacity="0.85"></line>
+  </g>
+  
+  <path d="M170 244 L 170 90 A 60 60 0 0 1 290 90 L 290 244 Z" fill="none" stroke="#4a3e2c" stroke-width="0.8" stroke-opacity="0.6"></path>
+
+  
+  <rect x="162" y="248" width="136" height="5" fill="#4a3e2c"></rect>
+
+  
+  <g font-family="Figtree, system-ui, sans-serif" font-size="11" font-style="italic" font-weight="300" fill="#586848" fill-opacity="0.75">
+    <text x="90" y="270" text-anchor="middle">mirror</text>
+    <text x="230" y="270" text-anchor="middle">window</text>
+  </g>
+</svg>
