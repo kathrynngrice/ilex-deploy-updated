@@ -5,3 +5,5 @@ fonts/
 *.zip
 .image-slots.state.json
 .DS_Store
+.vercel
+.env*.local
