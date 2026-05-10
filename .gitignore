@@ -1,5 +1,4 @@
 # Design system source files (not for deployment)
-site/
 preview/
 fonts/
 *.zip
