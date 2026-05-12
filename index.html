@@ -37,23 +37,12 @@
   .quote-band .deco { position: absolute; right: -40px; bottom: -40px; width: 280px; opacity: 0.18; }
 
   /* Hero variant overrides via [data-hero] */
-  body[data-hero="bleed"] .home-hero { grid-template-columns: 1fr; text-align: left; min-height: 560px; padding: var(--space-10) 0; }
-  body[data-hero="bleed"] .home-hero .side-art { display: none; }
-  body[data-hero="bleed"] .hero-canopy { display: block; }
-  body[data-hero="bleed"] .home-hero > .copy { max-width: 720px; position: relative; z-index: 2; }
-
   body[data-hero="quiet"] .home-hero { grid-template-columns: 1fr; text-align: center; max-width: 760px; margin: 0 auto; padding: var(--space-10) 0; }
   body[data-hero="quiet"] .home-hero .side-art { display: none; }
   body[data-hero="quiet"] .hero-canopy { display: none; }
   body[data-hero="quiet"] .home-hero .cta-row { justify-content: center; }
   body[data-hero="quiet"] .home-hero p.lead { margin-left: auto; margin-right: auto; }
 
-  body[data-hero="side"] .hero-canopy { display: none; }
-
-  /* Hero switcher chip */
-  .hero-switch { position: fixed; left: 16px; bottom: 16px; z-index: 100; background: var(--surface-card); border: 1px solid var(--line-soft); border-radius: var(--r-pill); padding: 6px; display: inline-flex; gap: 4px; box-shadow: var(--shadow-leaf); }
-  .hero-switch button { background: transparent; border: 0; padding: 6px 12px; border-radius: var(--r-pill); font-size: 12px; cursor: pointer; color: var(--fg-2); font-family: var(--font-sans); }
-  .hero-switch button.on { background: var(--sage-500); color: var(--bark-50); }
 </style>
 </head>
 <body data-hero="side">
@@ -73,8 +62,7 @@
         </div>
       </div>
       <div class="side-art">
-        <image-slot id="home-hero-photo" shape="rounded" radius="20" placeholder="Drop a portrait or atmospheric image"></image-slot>
-        <img src="../assets/kathryn-cropped.jpeg" alt="Kathryn headshot" style="width:100%; height:100%; object-fit:cover;">
+        <img src="../assets/kathryn-cropped.jpeg" alt="Kathryn headshot" shape="rounded" radius="20" style="width:100%; height:100%; object-fit:cover;">
       </div>
     </section>
 
