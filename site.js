@@ -24,7 +24,7 @@
           <a class="brand" href="index.html"><img src="../assets/logo/ilex-garden-wordmark.svg" alt="Ilex Garden"></a>
           <ul>
             ${NAV_ITEMS.map(i => `<li><a href="${i.href}" class="${i.href === here ? 'active' : ''}">${i.label}</a></li>`).join('')}
-            <li><a href="services.html#book" class="btn btn-primary" style="padding:8px 16px;">Begin a session →</a></li>
+            <li><a href="services.html#book" class="btn btn-primary" style="padding:8px 16px;">Let's connect →</a></li>
           </ul>
         </div>
       </nav>
@@ -51,11 +51,11 @@
             <h4>Begin</h4>
             <ul>
               <li><a href="services.html#book">Discovery call</a></li>
-              <li><a href="mailto:hello@ilexgarden.example">hello@ilexgarden.example</a></li>
+              <li><a href="mailto:kathrynngrice@gmail.com">kathrynngrice@gmail.com</a></li>
             </ul>
           </div>
         </div>
-        <div class="colophon">Made slowly, with attention.</div>
+        <div class="colophon">Made slowly, then all at once.</div>
       </footer>
     `;
   }
