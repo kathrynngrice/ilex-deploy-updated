@@ -87,6 +87,9 @@ section.tight { padding: var(--space-7) 0; }
   margin-top: var(--space-9);
   position: relative;
   overflow: hidden;
+  background: rgba(244, 237, 224, 0.88);       
+  backdrop-filter: blur(12px);                   
+  -webkit-backdrop-filter: blur(12px);
 }
 .site-footer .inner {
   max-width: 1180px; margin: 0 auto; padding: 0 var(--space-6);
