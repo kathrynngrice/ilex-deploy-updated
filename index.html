@@ -27,6 +27,15 @@
   .home-hero .cta-row { justify-content: center; }
   .home-hero p.lead { margin-left: auto; margin-right: auto; }
 
+  /* First content section after hero: shimmer fades out over 80px */
+  .home-hero + section {
+    background: linear-gradient(to bottom, transparent 0%, var(--surface-page) 80px);
+  }
+  /* All remaining sections: solid, shimmer fully blocked */
+  main section:not(.home-hero) {
+    background: var(--surface-page);
+  }
+
   @media (max-width: 800px) {
     .home-hero { grid-template-columns: 1fr; }
   }
