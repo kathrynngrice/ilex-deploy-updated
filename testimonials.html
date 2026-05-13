@@ -7,6 +7,24 @@
 <link rel="stylesheet" href="../colors_and_type.css">
 <link rel="stylesheet" href="site.css">
 <style>
+  .hero-section {
+    position: relative; 
+    min-height: 400px;
+    color: white;
+    isolation: isolate; 
+  }
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Cover the entire section */
+    z-index: -1; /* Place behind text */
+    background-image: url('../pics/Kathryn-Mic.jpg');
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center;
+    opacity: 0.3;
+  }
+  
   .t-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-5); }
   .t-card { background: var(--surface-card); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
   .t-card.feature { grid-column: span 4; background: var(--surface-canopy); border: none; }
@@ -33,7 +51,7 @@
 
 <main>
   <div class="container">
-    <section style="padding-bottom: var(--space-6);">
+    <section class="hero-section"; height: 500px;" >
       <span class="eyebrow">In their words</span>
       <h1 style="margin-top: var(--space-4); max-width: 20ch;">What people say after a season of working together.</h1>
       <p class="lead" style="margin-top: var(--space-5); max-width: 56ch;">First names only.</p>
@@ -81,13 +99,13 @@
     <section>
       <div class="endcap">
         <div>
-          <span class="overline">Ready to begin?</span>
-          <h2 style="margin-top: var(--space-3);">A discovery call is the only commitment.</h2>
+          <span class="overline">Curious about working together?</span>
+          <h2 style="margin-top: var(--space-3);">Book a 30-minute discovery call to assess fit and chemistry.</h2>
           <p>Thirty minutes, no pressure to decide. By the end, we'll have a sense of whether this is the right fit.</p>
           <a href="services.html#book" class="btn btn-primary" style="margin-top: var(--space-4);">Book a discovery call →</a>
         </div>
         <div style="text-align: center;">
-          <img src="../assets/kathryn-cropped.jpeg" alt="" style="max-width: 320px; width: 100%;\">
+          <img src="../illustrations/seedling.svg" alt="" style="max-width: 320px; width: 100%;\">
         </div>
       </div>
     </section>
