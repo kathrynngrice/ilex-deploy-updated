@@ -45,16 +45,17 @@
      (z-index: -1) sits above the canvas but behind all body content.
      Only transform is animated → compositor thread, zero layout cost.
      ──────────────────────────────────────────────────────────────────── */
-  html { background: var(--surface-page); }
-  body { background: transparent; }
-
+  /* ── Ambient gradient mesh ────────────────────────────────────────────── */
   #ig-mesh {
     position: fixed;
     inset: 0;
-    z-index: -1;
+    z-index: 1;          /* sits above page background */
     pointer-events: none;
     overflow: hidden;
   }
+  /* Lift all real content above the mesh — no visual change, just stacking */
+  main, .site-footer { position: relative; z-index: 2; }
+
   #ig-mesh span {
     position: absolute;
     border-radius: 50%;
