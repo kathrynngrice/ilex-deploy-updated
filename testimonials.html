@@ -44,6 +44,16 @@
 
   .endcap { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; margin-top: var(--space-9); padding: var(--space-8); background: var(--surface-card); border: 1px solid var(--line-soft); border-radius: var(--r-xl); }
   @media (max-width: 800px) { .endcap { grid-template-columns: 1fr; } }
+
+  .booking { background: var(--surface-card); border: 1px solid var(--line-soft); border-radius: var(--r-lg); padding: var(--space-8); display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-7); align-items: center; }
+  @media (max-width: 800px) { .booking { grid-template-columns: 1fr; } }
+
+  form.booking-form { display: flex; flex-direction: column; gap: var(--space-4); }
+  form.booking-form label { font-size: var(--t-caption); text-transform: uppercase; letter-spacing: var(--track-wide); color: var(--fg-3); display: block; margin-bottom: 6px; }
+  form.booking-form input, form.booking-form textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line-medium); border-radius: var(--r-sm); background: var(--bark-50); font-family: inherit; font-size: var(--t-small); color: var(--fg-1); }
+  form.booking-form textarea { min-height: 90px; resize: vertical; }
+  form.booking-form input:focus, form.booking-form textarea:focus { outline: none; border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(111, 129, 92, 0.18); }
+
 </style>
 </head>
 <body>
@@ -96,17 +106,29 @@
       </div>
     </section>
 
-    <section>
-      <div class="endcap">
+    <section id="book">
+      <div class="booking">
         <div>
-          <span class="overline">Curious about working together?</span>
-          <h2 style="margin-top: var(--space-3);">Book a 30-minute discovery call to assess fit and chemistry.</h2>
-          <p>Thirty minutes, no pressure to decide. By the end, we'll have a sense of whether this is the right fit.</p>
-          <a href="services.html#book" class="btn btn-primary" style="margin-top: var(--space-4);">Book a discovery call →</a>
+          <span class="overline"></span>
+          <h2 style="margin-top: var(--space-3);">Curious about working together?</h2>
+          <p>Book a 30-minute discovery call to assess fit and chemistry. No pressure to decide. By the end, we'll have a sense of whether this is the right fit.</p>
+          <img src="../assets/logo/ilex-garden-mark.svg" alt="" style="width: 200px; margin-top: var(--space-1); opacity: 0.5;">
         </div>
-        <div style="text-align: center;">
-          <img src="../logo/ilex-garden-mark.svg" alt="" style="width: 200px; var(--space-1); opacity: 0.5;>
-        </div>
+        <form class="booking-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thank you. I\'ll be in touch.';">
+          <div>
+            <label for="bname">Your name</label>
+            <input id="bname" type="text" required>
+          </div>
+          <div>
+            <label for="bemail">Email</label>
+            <input id="bemail" type="email" required>
+          </div>
+          <div>
+            <label for="bnote">A sentence or two — what's bringing you here?</label>
+            <textarea id="bnote" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send →</button>
+        </form>
       </div>
     </section>
   </div>
