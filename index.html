@@ -56,38 +56,38 @@
   /* Lift all real content above the mesh — no visual change, just stacking */
   main, .site-footer { position: relative; z-index: 2; }
 
-  #ig-mesh span {
+   #ig-mesh span {
     position: absolute;
     border-radius: 50%;
-    filter: blur(90px);
+    filter: blur(60px);       /* was 90px — tighter keeps color visible */
     will-change: transform;
   }
   #ig-mesh span:nth-child(1) {
     width: 72vw; height: 62vh;
-    top: -18vh; left: -8vw;
+    top: -5vh; left: -5vw;   /* moved on-screen */
     background: radial-gradient(ellipse at center,
-      rgba(168, 184, 148, 0.11) 0%, transparent 70%);
+      rgba(168, 184, 148, 0.20) 0%, transparent 70%);
     animation: ig-1 37s ease-in-out infinite;
   }
   #ig-mesh span:nth-child(2) {
     width: 66vw; height: 66vh;
-    bottom: -22vh; right: -8vw;
+    bottom: -5vh; right: -5vw;
     background: radial-gradient(ellipse at center,
-      rgba(186, 200, 214, 0.10) 0%, transparent 70%);
+      rgba(186, 200, 214, 0.18) 0%, transparent 70%);
     animation: ig-2 43s ease-in-out infinite;
   }
   #ig-mesh span:nth-child(3) {
     width: 56vw; height: 56vh;
-    top: 28vh; right: 4vw;
+    top: 20vh; right: 10vw;
     background: radial-gradient(ellipse at center,
-      rgba(224, 169, 136, 0.09) 0%, transparent 70%);
+      rgba(224, 169, 136, 0.16) 0%, transparent 70%);
     animation: ig-3 31s ease-in-out infinite;
   }
   #ig-mesh span:nth-child(4) {
     width: 62vw; height: 72vh;
-    top: 32vh; left: -14vw;
+    top: 25vh; left: -5vw;
     background: radial-gradient(ellipse at center,
-      rgba(140, 162, 117, 0.08) 0%, transparent 70%);
+      rgba(140, 162, 117, 0.14) 0%, transparent 70%);
     animation: ig-4 52s ease-in-out infinite;
   }
   @keyframes ig-1 {
@@ -139,7 +139,8 @@
       <div class="copy">
         <span class="eyebrow">Kathryn Grice</span>
         <h1 class="display" style="margin-top: var(--space-4);">Explore living with more complexity.</h1>
-        <p class="lead">Leadership coaching & facilitation for adults navigating career and life transitions. Grounded in adult development research, paced for intention and sustainable adaptation.</p>
+        <p class="lead">Leadership coaching & facilitation for adults navigating career and life transitions. </p>
+        <p class="lead">Grounded in adult development research, paced for intention and sustainable adaptation.</p>
         <div class="cta-row">
           <a href="services.html#book" class="btn btn-primary">Let's connect →</a>
           <a href="about.html" class="btn btn-secondary">About Kathryn</a>
