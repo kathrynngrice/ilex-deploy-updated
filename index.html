@@ -65,7 +65,10 @@
 <script>
 (function () {
   const canvas = document.getElementById('ig-mesh');
+  if (!canvas || typeof canvas.getContext !== 'function') return;
   const ctx = canvas.getContext('2d');
+  if (!ctx) return;
+
   const SPEED = 3 / 400;
   const INTENSITY = 29;
   const CELL = 16;
@@ -125,9 +128,7 @@
     requestAnimationFrame(draw);
   }
 
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    requestAnimationFrame(draw);
-  }
+  requestAnimationFrame(draw);
 })();
 </script>
   
