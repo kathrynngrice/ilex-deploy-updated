@@ -40,13 +40,11 @@
   .quote-band cite { display: block; margin-top: var(--space-5); font-style: normal; color: var(--sage-200); font-size: var(--t-small); }
   .quote-band .deco { position: absolute; right: -40px; bottom: -40px; width: 280px; opacity: 0.18; }
 
-</style>
-
-  <style>
-  /* ── Ambient gradient mesh ───────────────────────────────────────────────
-     Move the page background from body → html so the fixed mesh (z-index:-1)
-     paints above the html fill but behind all body content.
-     ──────────────────────────────────────────────────────────────────────── */
+  /* ── Ambient gradient mesh ──────────────────────────────────────────────
+     html keeps the page colour; body goes transparent so the fixed mesh
+     (z-index: -1) sits above the canvas but behind all body content.
+     Only transform is animated → compositor thread, zero layout cost.
+     ──────────────────────────────────────────────────────────────────── */
   html { background: var(--surface-page); }
   body { background: transparent; }
 
@@ -57,17 +55,12 @@
     pointer-events: none;
     overflow: hidden;
   }
-
-  /* Four radial-gradient blobs. Only transform is animated → GPU compositor,
-     zero layout recalculation. blur() is static, not animated — cheap. */
   #ig-mesh span {
     position: absolute;
     border-radius: 50%;
     filter: blur(90px);
     will-change: transform;
   }
-
-  /* Blob 1 — sage green, top-left */
   #ig-mesh span:nth-child(1) {
     width: 72vw; height: 62vh;
     top: -18vh; left: -8vw;
@@ -75,8 +68,6 @@
       rgba(168, 184, 148, 0.11) 0%, transparent 70%);
     animation: ig-1 37s ease-in-out infinite;
   }
-
-  /* Blob 2 — sky blue, bottom-right */
   #ig-mesh span:nth-child(2) {
     width: 66vw; height: 66vh;
     bottom: -22vh; right: -8vw;
@@ -84,8 +75,6 @@
       rgba(186, 200, 214, 0.10) 0%, transparent 70%);
     animation: ig-2 43s ease-in-out infinite;
   }
-
-  /* Blob 3 — ember terracotta, mid-right */
   #ig-mesh span:nth-child(3) {
     width: 56vw; height: 56vh;
     top: 28vh; right: 4vw;
@@ -93,8 +82,6 @@
       rgba(224, 169, 136, 0.09) 0%, transparent 70%);
     animation: ig-3 31s ease-in-out infinite;
   }
-
-  /* Blob 4 — deeper sage, mid-left */
   #ig-mesh span:nth-child(4) {
     width: 62vw; height: 72vh;
     top: 32vh; left: -14vw;
@@ -102,52 +89,45 @@
       rgba(140, 162, 117, 0.08) 0%, transparent 70%);
     animation: ig-4 52s ease-in-out infinite;
   }
-
-  /* Keyframes: 0% === 100% → seamless loop. Distances stay ≤ 12vw/22vh
-     so the shift is never dramatic enough to track consciously. */
   @keyframes ig-1 {
-    0%   { transform: translate(0,    0); }
-    25%  { transform: translate(8vw,  12vh); }
-    55%  { transform: translate(5vw,  22vh); }
-    80%  { transform: translate(-4vw, 10vh); }
-    100% { transform: translate(0,    0); }
+    0%   { transform: translate(0,    0);      }
+    25%  { transform: translate(8vw,  12vh);   }
+    55%  { transform: translate(5vw,  22vh);   }
+    80%  { transform: translate(-4vw, 10vh);   }
+    100% { transform: translate(0,    0);      }
   }
   @keyframes ig-2 {
-    0%   { transform: translate(0,     0); }
-    30%  { transform: translate(-10vw, -8vh); }
+    0%   { transform: translate(0,     0);     }
+    30%  { transform: translate(-10vw, -8vh);  }
     60%  { transform: translate(-6vw,  -20vh); }
     80%  { transform: translate(4vw,   -12vh); }
-    100% { transform: translate(0,     0); }
+    100% { transform: translate(0,     0);     }
   }
   @keyframes ig-3 {
-    0%   { transform: translate(0,     0); }
-    20%  { transform: translate(-8vw,  6vh); }
-    55%  { transform: translate(-12vw, -4vh); }
-    80%  { transform: translate(-5vw,  8vh); }
-    100% { transform: translate(0,     0); }
+    0%   { transform: translate(0,     0);     }
+    20%  { transform: translate(-8vw,  6vh);   }
+    55%  { transform: translate(-12vw, -4vh);  }
+    80%  { transform: translate(-5vw,  8vh);   }
+    100% { transform: translate(0,     0);     }
   }
   @keyframes ig-4 {
-    0%   { transform: translate(0,    0); }
-    35%  { transform: translate(10vw, -8vh); }
-    65%  { transform: translate(14vw, 6vh); }
-    85%  { transform: translate(5vw,  10vh); }
-    100% { transform: translate(0,    0); }
+    0%   { transform: translate(0,    0);      }
+    35%  { transform: translate(10vw, -8vh);   }
+    65%  { transform: translate(14vw, 6vh);    }
+    85%  { transform: translate(5vw,  10vh);   }
+    100% { transform: translate(0,    0);      }
   }
-
-  /* Reduced-motion: cut animation entirely, keep blobs as static tint */
   @media (prefers-reduced-motion: reduce) {
     #ig-mesh span { animation: none; }
   }
+  
 </style>
   
 </head>
 <body data-hero="side">
-  <div id="ig-mesh" aria-hidden="true">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<div id="ig-mesh" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+</div>
 
 <div data-nav></div>
 
