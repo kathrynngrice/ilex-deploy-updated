@@ -27,13 +27,22 @@
   .home-hero .cta-row { justify-content: center; }
   .home-hero p.lead { margin-left: auto; margin-right: auto; }
 
-  /* First content section after hero: shimmer fades out over 80px */
-  .home-hero + section {
-    background: linear-gradient(to bottom, transparent 0%, var(--surface-page) 80px);
-  }
-  /* All remaining sections: solid, shimmer fully blocked */
+  /* Sections below hero: full-viewport-width background via ::before */
   main section:not(.home-hero) {
+    position: relative;
+  }
+  main section:not(.home-hero)::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: calc(50% - 50vw);
+    width: 100vw;
     background: var(--surface-page);
+    z-index: -1;
+  }
+  /* First section after hero gets gradient fade instead of hard edge */
+  .home-hero + section::before {
+    background: linear-gradient(to bottom, transparent 0%, var(--surface-page) 80px);
   }
 
   @media (max-width: 800px) {
