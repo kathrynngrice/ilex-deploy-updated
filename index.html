@@ -28,13 +28,10 @@
   .home-hero p.lead { margin-left: auto; margin-right: auto; }
 
   /* Sections below hero: full-viewport-width background via ::before */
-  main section:not(.home-hero) { position: relative; }
-  
-  .section-fade {
+main section:not(.home-hero) {
     position: relative;
   }
-  
-  .section-fade::before {
+  main section:not(.home-hero)::before {
     content: '';
     position: absolute;
     top: 0; bottom: 0;
@@ -42,14 +39,10 @@
     width: 100vw;
     background: var(--surface-page);
     z-index: -1;
-    -webkit-mask-image:
-      linear-gradient(to right,  transparent, black 80px, black calc(100% - 80px), transparent),
-      linear-gradient(to bottom, transparent, black 80px, black calc(100% - 80px), transparent);
-    -webkit-mask-composite: source-in;
-    mask-image:
-      linear-gradient(to right,  transparent, black 80px, black calc(100% - 80px), transparent),
-      linear-gradient(to bottom, transparent, black 80px, black calc(100% - 80px), transparent);
-    mask-composite: intersect;
+  }
+  /* First section after hero gets gradient fade instead of hard edge */
+  main .home-hero + section::before {
+    background: linear-gradient(to bottom, transparent 0%, var(--surface-page) 80px);
   }
 
   @media (max-width: 800px) {
