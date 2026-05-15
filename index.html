@@ -28,17 +28,27 @@
   .home-hero p.lead { margin-left: auto; margin-right: auto; }
 
   /* Sections below hero: full-viewport-width background via ::before */
-  main section:not(.home-hero) {
+  main section:not(.home-hero) { position: relative; }
+  
+  .section-fade {
     position: relative;
   }
-  main section:not(.home-hero)::before {
+  .section-fade::before {
     content: '';
     position: absolute;
     top: 0; bottom: 0;
     left: calc(50% - 50vw);
     width: 100vw;
-    background: linear-gradient(to bottom, transparent 0%, var(--surface-page) 80px);
+    background: var(--surface-page);
     z-index: -1;
+    -webkit-mask-image:
+      linear-gradient(to right,  transparent, black 80px, black calc(100% - 80px), transparent),
+      linear-gradient(to bottom, transparent, black 80px, black calc(100% - 80px), transparent);
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(to right,  transparent, black 80px, black calc(100% - 80px), transparent),
+      linear-gradient(to bottom, transparent, black 80px, black calc(100% - 80px), transparent);
+    mask-composite: intersect;
   }
 
   @media (max-width: 800px) {
@@ -89,7 +99,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="section-fade">
       <span class="overline">How the work moves</span>
       <h2 style="margin-top: var(--space-3); max-width: 22ch;">Forest floor, understory, canopy — small experiments that build new habits without overwhelming the system.</h2>
       <div class="stages">
@@ -111,29 +121,31 @@
       </div>
     </section>
 
-    <section>
-      <div class="grid-2">
-        <div>
-          <span class="overline">Who this is for</span>
-          <h2 style="margin-top: var(--space-3);">Adults in the middle of a real change.</h2>
-          <p>Between - not stuck. A new role, a new chapter, a quiet question that won't go away. You'll gradually notice new shifts and movement.</p>
-          <p><a href="about.html">More about the practice →</a></p>
-        </div>
-        <div>
-          <div class="card">
-            <span class="overline">First session</span>
-            <h3 style="margin-top: var(--space-3);">A 30-minute discovery call.</h3>
-            <p>We talk. You bring what's on your mind and in your heart. By the end, we'll know whether this is the right fit.</p>
-            <a href="services.html#book" class="btn btn-primary" style="margin-top: var(--space-4);">Let's connect →</a>
+    <div class="section-fade">
+      <section>
+        <div class="grid-2">
+          <div>
+            <span class="overline">Who this is for</span>
+            <h2 style="margin-top: var(--space-3);">Adults in the middle of a real change.</h2>
+            <p>Between - not stuck. A new role, a new chapter, a quiet question that won't go away. You'll gradually notice new shifts and movement.</p>
+            <p><a href="about.html">More about the practice →</a></p>
+          </div>
+          <div>
+            <div class="card">
+              <span class="overline">First session</span>
+              <h3 style="margin-top: var(--space-3);">A 30-minute discovery call.</h3>
+              <p>We talk. You bring what's on your mind and in your heart. By the end, we'll know whether this is the right fit.</p>
+              <a href="services.html#book" class="btn btn-primary" style="margin-top: var(--space-4);">Let's connect →</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="reflect">
-      <div class="label">A question to sit with</div>
-      <p>What is your current growth edge? What's available to you if you stretch beyond it?</p>
-    </section>
+      </section>
+  
+      <section class="reflect">
+        <div class="label">A question to sit with</div>
+        <p>What is your current growth edge? What's available to you if you stretch beyond it?</p>
+      </section>
+    </div>
   </div>
 </main>
 
@@ -149,7 +161,7 @@
   if (!ctx) return;
 
   const SPEED = 1 / 400;
-  const INTENSITY = 29;
+  const INTENSITY = 20;
   const CELL = 16;
   let W, H, COLS, ROWS, CW, CH;
 
