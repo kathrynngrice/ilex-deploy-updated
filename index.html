@@ -28,27 +28,28 @@
   .home-hero p.lead { margin-left: auto; margin-right: auto; }
 
   /* Sections below hero: full-viewport-width background via ::before */
-  main section:not(.home-hero) {
-    position: relative;
-  }
-  main section:not(.home-hero)::before {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    left: calc(50% - 50vw);
-    width: 100vw;
-    background: var(--surface-page);
-    z-index: -1;
-  
-    /* Fade top/bottom edges — shimmer shows through top and bottom */
+ main section:not(.home-hero) { position: relative; }
+
+.section-fade {
+  position: relative;
+}
+.section-fade::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background: var(--surface-page);
+  z-index: -1;
   -webkit-mask-image:
     linear-gradient(to right,  transparent, black 160px, black calc(100% - 160px), transparent),
-    linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent);
+    linear-gradient(to bottom, transparent, black 160px, black calc(100% - 160px), transparent);
   -webkit-mask-composite: source-in;
   mask-image:
     linear-gradient(to right,  transparent, black 160px, black calc(100% - 160px), transparent),
-    linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent);
+    linear-gradient(to bottom, transparent, black 160px, black calc(100% - 160px), transparent);
   mask-composite: intersect;
+}
 
   @media (max-width: 800px) {
     .home-hero { grid-template-columns: 1fr; }
