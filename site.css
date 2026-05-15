@@ -68,7 +68,7 @@ section.tight { padding: var(--space-7) 0; }
 .reflect {
   border-left: 1px solid var(--line-medium);
   padding: var(--space-5) var(--space-6);
-  margin: var(--space-7) 0;
+  margin: var(--space-7) auto;   /* auto left/right centers it */
   max-width: 60ch;
 }
 .reflect p {
