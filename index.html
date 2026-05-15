@@ -43,9 +43,10 @@
     /* Fade top/bottom edges — shimmer shows through top and bottom */
   -webkit-mask-image:
     linear-gradient(to bottom, transparent, black 140px, black calc(100% - 140px), transparent);
+  -webkit-mask-composite: source-in;
   mask-image:
     linear-gradient(to bottom, transparent, black 140px, black calc(100% - 140px), transparent);
-    
+  mask-composite: intersect;
 
   @media (max-width: 800px) {
     .home-hero { grid-template-columns: 1fr; }
