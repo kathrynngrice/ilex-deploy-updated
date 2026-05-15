@@ -42,10 +42,12 @@
   
     /* Fade top/bottom edges — shimmer shows through top and bottom */
   -webkit-mask-image:
-    linear-gradient(to bottom, transparent, black 140px, black calc(100% - 140px), transparent);
+    linear-gradient(to right,  transparent, black 160px, black calc(100% - 160px), transparent),
+    linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent);
   -webkit-mask-composite: source-in;
   mask-image:
-    linear-gradient(to bottom, transparent, black 140px, black calc(100% - 140px), transparent);
+    linear-gradient(to right,  transparent, black 160px, black calc(100% - 160px), transparent),
+    linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent);
   mask-composite: intersect;
 
   @media (max-width: 800px) {
