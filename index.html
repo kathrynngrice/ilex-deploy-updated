@@ -8,9 +8,8 @@
 <link rel="stylesheet" href="site.css">
 <link rel="icon" type="image/x-icon" href="../assets/logo/ilex-garden-mark.svg">
 <style>
-  /* Home-specific */
-  .hero-canopy { display: none; }
 
+  /* ── Hero ── */
   .home-hero {
     display: grid;
     grid-template-columns: 1fr;
@@ -24,10 +23,11 @@
     min-height: calc(100svh - 64px);
   }
   .home-hero h1.display { margin: 0; }
-  .home-hero .cta-row { justify-content: center; }
-  .home-hero p.lead { margin-left: auto; margin-right: auto; }
+  .home-hero .cta-row   { justify-content: center; }
+  .home-hero p.lead     { margin-left: auto; margin-right: auto; }
 
-.home-hero::before {
+  /* Radial tint behind hero text — z-index: 0 so it sits above the canvas */
+  .home-hero::before {
     content: '';
     position: absolute;
     top: 0; bottom: 0;
@@ -38,30 +38,31 @@
       rgba(244, 237, 224, 0.35) 50%,
       transparent 100%
     );
-    z-index: -1;
+    z-index: 0;
     pointer-events: none;
   }
+  /* Content sits above the tint */
+  .home-hero .copy {
+    position: relative;
+    z-index: 1;
+  }
 
-  /* Sections below hero: full-viewport-width background via ::before */
-  main section:not(.home-hero) { position: relative; }
-  
+  /* ── Section fades ── */
   .section-fade {
     position: relative;
     padding-top: 140px;
     padding-bottom: 140px;
   }
-  
-  /* Reset inner section padding so it doesn't stack on top of the wrapper's */
+  /* Reset inner section padding so it doesn't stack on the wrapper's */
   div.section-fade > section {
     padding-top: 0;
     padding-bottom: 0;
   }
-  
-  /* Breathing room between "Who this is for" and "A question to sit with" */
+  /* Gap between sections inside wrapper */
   div.section-fade > section + section {
     margin-top: var(--space-8);
   }
-  
+  /* Full-viewport-width solid background with top/bottom fade */
   .section-fade::before {
     content: '';
     position: absolute;
@@ -86,31 +87,19 @@
     );
   }
 
-  @media (max-width: 800px) {
-    .home-hero { grid-template-columns: 1fr; }
-  }
-
+  /* ── Stages ── */
   .stages { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); margin-top: var(--space-7); }
   .stage { padding: var(--space-6); border-left: 1px solid var(--line-medium); }
   .stage .step { font-size: var(--t-overline); text-transform: uppercase; letter-spacing: var(--track-wide); color: var(--accent-primary); margin-bottom: var(--space-3); }
   .stage h3 { margin: 0 0 var(--space-3); font-weight: var(--w-medium); }
-  .stage p { margin: 0; color: var(--fg-2); }
+  .stage p  { margin: 0; color: var(--fg-2); }
   @media (max-width: 800px) { .stages { grid-template-columns: 1fr; } }
 
-  .quote-band { background: var(--surface-canopy); color: var(--fg-on-deep); border-radius: var(--r-xl); padding: var(--space-8); margin: var(--space-9) 0; position: relative; overflow: hidden; }
-  .quote-band p { color: var(--fg-on-deep); max-width: 36ch; font-size: 28px; line-height: 1.35; font-weight: var(--w-light); font-style: italic; margin: 0; }
-  .quote-band cite { display: block; margin-top: var(--space-5); font-style: normal; color: var(--sage-200); font-size: var(--t-small); }
-  .quote-band .deco { position: absolute; right: -40px; bottom: -40px; width: 280px; opacity: 0.18; }
-
-  /* ── Shimmer mesh ── */
-  #ig-mesh {
-    position: fixed;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-  }
+  /* ── Shimmer canvas ── */
+  #ig-mesh { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
   main, .site-footer { position: relative; z-index: 2; }
   @media (prefers-reduced-motion: reduce) { #ig-mesh { display: none; } }
+
 </style>
 </head>
 
@@ -121,6 +110,7 @@
 
 <main>
   <div class="container">
+
     <section class="home-hero">
       <div class="copy">
         <span class="eyebrow">Kathryn Grice</span>
@@ -175,12 +165,12 @@
           </div>
         </div>
       </section>
-  
       <section class="reflect">
         <div class="label">A question to sit with</div>
         <p>What is your current growth edge? What's available to you if you stretch beyond it?</p>
       </section>
     </div>
+
   </div>
 </main>
 
@@ -195,9 +185,9 @@
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  const SPEED = 1 / 400;
+  const SPEED     = 1 / 400;
   const INTENSITY = 20;
-  const CELL = 16;
+  const CELL      = 16;
   let W, H, COLS, ROWS, CW, CH;
 
   function resize() {
@@ -213,22 +203,22 @@
 
   function color(norm) {
     if (norm > 0.75) {
-      const a = ((norm - 0.75) / 0.25) * INTENSITY * 0.018;
+      const a = ((norm - 0.75) / 0.25)  * INTENSITY * 0.018;
       return `rgba(224,227,242,${a.toFixed(3)})`;
     } else if (norm > 0.62) {
-      const a = ((norm - 0.62) / 0.13) * INTENSITY * 0.011;
+      const a = ((norm - 0.62) / 0.13)  * INTENSITY * 0.011;
       return `rgba(158,165,200,${a.toFixed(3)})`;
     } else if (norm > 0.50) {
-      const a = ((norm - 0.50) / 0.12) * INTENSITY * 0.010;
+      const a = ((norm - 0.50) / 0.12)  * INTENSITY * 0.010;
       return `rgba(148,155,188,${a.toFixed(3)})`;
     } else if (norm > 0.40) {
-      const a = ((norm - 0.40) / 0.10) * INTENSITY * 0.012;
+      const a = ((norm - 0.40) / 0.10)  * INTENSITY * 0.012;
       return `rgba(200,128,88,${a.toFixed(3)})`;
     } else if (norm > 0.26) {
-      const a = ((0.40 - norm) / 0.14) * INTENSITY * 0.013;
+      const a = ((0.40 - norm)  / 0.14) * INTENSITY * 0.013;
       return `rgba(162,92,60,${a.toFixed(3)})`;
     } else {
-      const a = ((0.26 - norm) / 0.26) * INTENSITY * 0.015;
+      const a = ((0.26 - norm)  / 0.26) * INTENSITY * 0.015;
       return `rgba(72,74,108,${a.toFixed(3)})`;
     }
   }
@@ -240,9 +230,9 @@
     ctx.clearRect(0, 0, W, H);
     for (let row = 0; row < ROWS; row++) {
       for (let col = 0; col < COLS; col++) {
-        const n1 = Math.sin(col * 0.65 + t * 2.1) * Math.cos(row * 0.80 + t * 1.4);
-        const n2 = Math.cos(col * 1.10 + t * 0.9) * Math.sin(row * 0.55 + t * 2.5);
-        const n3 = Math.sin((col + row) * 0.45 + t * 1.7) * 0.6;
+        const n1   = Math.sin(col * 0.65 + t * 2.1) * Math.cos(row * 0.80 + t * 1.4);
+        const n2   = Math.cos(col * 1.10 + t * 0.9) * Math.sin(row * 0.55 + t * 2.5);
+        const n3   = Math.sin((col + row) * 0.45 + t * 1.7) * 0.6;
         const norm = ((n1 * 0.45 + n2 * 0.35 + n3 * 0.20) + 1) / 2;
         ctx.fillStyle = color(norm);
         ctx.fillRect(
