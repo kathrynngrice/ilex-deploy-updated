@@ -2,12 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Kathryn Grice</title>
+<title>Ilex — Explore living with more complexity</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../colors_and_type.css">
 <link rel="stylesheet" href="site.css">
-<link rel="icon" type="image/x-icon" href="../assets/logo/ilex-garden-mark.svg">
 <style>
+  /* ── Shimmer canvas ── */
+  #ig-mesh { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+  main, .site-footer { position: relative; z-index: 2; }
+  @media (prefers-reduced-motion: reduce) { #ig-mesh { display: none; } }
 
   /* ── Hero ── */
   .home-hero {
@@ -17,7 +20,6 @@
     max-width: 760px;
     margin: 0 auto;
     padding: var(--space-8) 0;
-    gap: var(--space-8);
     position: relative;
     align-content: center;
     min-height: calc(100svh - 64px);
@@ -26,9 +28,8 @@
   .home-hero .cta-row   { justify-content: center; }
   .home-hero p.lead     { margin-left: auto; margin-right: auto; }
 
-  /* Radial tint behind hero text — z-index: 0 so it sits above the canvas */
-  .home-hero::before {
-    content: '';
+  /* Radial tint: explicit div avoids ::before + grid container conflicts */
+  .hero-bg {
     position: absolute;
     top: 0; bottom: 0;
     left: calc(50% - 50vw);
@@ -38,8 +39,8 @@
       rgba(244, 237, 224, 0.35) 50%,
       transparent 100%
     );
-    z-index: 0;
     pointer-events: none;
+    z-index: 0;
   }
   /* Content sits above the tint */
   .home-hero .copy {
@@ -53,16 +54,14 @@
     padding-top: 140px;
     padding-bottom: 140px;
   }
-  /* Reset inner section padding so it doesn't stack on the wrapper's */
+  /* Sections inside a fade wrapper lose their own padding (avoids double-spacing) */
   div.section-fade > section {
     padding-top: 0;
     padding-bottom: 0;
   }
-  /* Gap between sections inside wrapper */
   div.section-fade > section + section {
     margin-top: var(--space-8);
   }
-  /* Full-viewport-width solid background with top/bottom fade */
   .section-fade::before {
     content: '';
     position: absolute;
@@ -72,18 +71,12 @@
     background: var(--surface-page);
     z-index: -1;
     mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      black 80px,
-      black calc(100% - 80px),
-      transparent
+      to bottom, transparent, black 80px,
+      black calc(100% - 80px), transparent
     );
     -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      black 80px,
-      black calc(100% - 80px),
-      transparent
+      to bottom, transparent, black 80px,
+      black calc(100% - 80px), transparent
     );
   }
 
@@ -94,29 +87,21 @@
   .stage h3 { margin: 0 0 var(--space-3); font-weight: var(--w-medium); }
   .stage p  { margin: 0; color: var(--fg-2); }
   @media (max-width: 800px) { .stages { grid-template-columns: 1fr; } }
-
-  /* ── Shimmer canvas ── */
-  #ig-mesh { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
-  main, .site-footer { position: relative; z-index: 2; }
-  @media (prefers-reduced-motion: reduce) { #ig-mesh { display: none; } }
-
 </style>
 </head>
-
 <body>
 <canvas id="ig-mesh" aria-hidden="true"></canvas>
-
 <div data-nav></div>
 
 <main>
   <div class="container">
 
     <section class="home-hero">
+      <div class="hero-bg"></div>
       <div class="copy">
-        <span class="eyebrow">Kathryn Grice</span>
-        <h1 class="display" style="margin-top: var(--space-4);">Explore living with more complexity.</h1>
-        <p class="lead">Leadership coaching & facilitation for adults navigating career and life transitions.</p>
-        <p class="lead">Grounded in adult development research, paced for intention and sustainable adaptation.</p>
+        <span class="eyebrow">leadership coaching</span>
+        <h1 class="display" style="margin-top: var(--space-4);">A breath to explore living with more complexity.</h1>
+        <p class="lead">1:1 leadership coaching for adults navigating career and life transitions — grounded in adult development research, paced for intentional adaptation.</p>
         <div class="cta-row">
           <a href="services.html#book" class="btn btn-primary">Let's connect →</a>
           <a href="about.html" class="btn btn-secondary">About Kathryn</a>
@@ -124,27 +109,29 @@
       </div>
     </section>
 
-    <section class="section-fade">
-      <span class="overline">How the work moves</span>
-      <h2 style="margin-top: var(--space-3); max-width: 22ch;">Forest floor, understory, canopy — small experiments that build new habits without overwhelming the system.</h2>
-      <div class="stages">
-        <div class="stage">
-          <div class="step">01 — Forest Floor</div>
-          <h3>Notice what's already true.</h3>
-          <p>We start with what's right in front of you. No fixing. Just attention.</p>
+    <div class="section-fade">
+      <section>
+        <span class="overline">How the work moves</span>
+        <h2 style="margin-top: var(--space-3); max-width: 22ch;">Floor, understory, canopy — small experiments that build new habits without overwhelming the system.</h2>
+        <div class="stages">
+          <div class="stage">
+            <div class="step">01 — Floor</div>
+            <h3>Notice what's already true.</h3>
+            <p>We start with what's right in front of you. No fixing, no reframing. Just attention.</p>
+          </div>
+          <div class="stage">
+            <div class="step">02 — Understory</div>
+            <h3>Try one small thing.</h3>
+            <p>A single, specific experiment between sessions — sized so you can actually do it during a busy week.</p>
+          </div>
+          <div class="stage">
+            <div class="step">03 — Canopy</div>
+            <h3>See what shifts.</h3>
+            <p>We return, name what got easier, and let the next step come into view. Growth happens in stages, not leaps.</p>
+          </div>
         </div>
-        <div class="stage">
-          <div class="step">02 — Understory</div>
-          <h3>Try something new - and small.</h3>
-          <p>A single, specific experiment between sessions — designed by you, so you can actually do it during a busy week.</p>
-        </div>
-        <div class="stage">
-          <div class="step">03 — Canopy</div>
-          <h3>Sense what shifts.</h3>
-          <p>You name what you noticed, and let the next step come into view. Growth happens in stages, not leaps.</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
 
     <div class="section-fade">
       <section>
@@ -152,7 +139,7 @@
           <div>
             <span class="overline">Who this is for</span>
             <h2 style="margin-top: var(--space-3);">Adults in the middle of a real change.</h2>
-            <p>Between - not stuck. A new role, a new chapter, a quiet question that won't go away. You'll gradually notice new shifts and movement.</p>
+            <p>Not stuck — between. A new role, a new chapter, a quiet question that won't go away. You'll gradually notice new shifts and movement.</p>
             <p><a href="about.html">More about the practice →</a></p>
           </div>
           <div>
@@ -167,7 +154,7 @@
       </section>
       <section class="reflect">
         <div class="label">A question to sit with</div>
-        <p>What is your current growth edge? What's available to you if you stretch beyond it?</p>
+        <p>What is your growth edge? What's available to you if you stretch beyond it?</p>
       </section>
     </div>
 
@@ -185,9 +172,7 @@
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
 
-  const SPEED     = 1 / 400;
-  const INTENSITY = 20;
-  const CELL      = 16;
+  const SPEED = 3 / 400, CELL = 16;
   let W, H, COLS, ROWS, CW, CH;
 
   function resize() {
@@ -202,25 +187,12 @@
   window.addEventListener('resize', resize);
 
   function color(norm) {
-    if (norm > 0.75) {
-      const a = ((norm - 0.75) / 0.25)  * INTENSITY * 0.018;
-      return `rgba(224,227,242,${a.toFixed(3)})`;
-    } else if (norm > 0.62) {
-      const a = ((norm - 0.62) / 0.13)  * INTENSITY * 0.011;
-      return `rgba(158,165,200,${a.toFixed(3)})`;
-    } else if (norm > 0.50) {
-      const a = ((norm - 0.50) / 0.12)  * INTENSITY * 0.010;
-      return `rgba(148,155,188,${a.toFixed(3)})`;
-    } else if (norm > 0.40) {
-      const a = ((norm - 0.40) / 0.10)  * INTENSITY * 0.012;
-      return `rgba(200,128,88,${a.toFixed(3)})`;
-    } else if (norm > 0.26) {
-      const a = ((0.40 - norm)  / 0.14) * INTENSITY * 0.013;
-      return `rgba(162,92,60,${a.toFixed(3)})`;
-    } else {
-      const a = ((0.26 - norm)  / 0.26) * INTENSITY * 0.015;
-      return `rgba(72,74,108,${a.toFixed(3)})`;
-    }
+    if (norm > 0.75) return 'rgba(224,227,242,0.9)';   /* pale periwinkle highlight */
+    if (norm > 0.62) return 'rgba(158,165,200,0.9)';   /* dusty blue-purple */
+    if (norm > 0.50) return 'rgba(148,155,188,0.9)';   /* cooler blue-purple */
+    if (norm > 0.40) return 'rgba(200,128,88,0.9)';    /* ember terracotta */
+    if (norm > 0.26) return 'rgba(162,92,60,0.9)';     /* deep ember */
+    return               'rgba(72,74,108,0.9)';         /* dark blue-plum shadow */
   }
 
   let start = null;
@@ -235,15 +207,11 @@
         const n3   = Math.sin((col + row) * 0.45 + t * 1.7) * 0.6;
         const norm = ((n1 * 0.45 + n2 * 0.35 + n3 * 0.20) + 1) / 2;
         ctx.fillStyle = color(norm);
-        ctx.fillRect(
-          Math.floor(col * CW), Math.floor(row * CH),
-          Math.ceil(CW) + 1,   Math.ceil(CH) + 1
-        );
+        ctx.fillRect(Math.floor(col * CW), Math.floor(row * CH), Math.ceil(CW) + 1, Math.ceil(CH) + 1);
       }
     }
     requestAnimationFrame(draw);
   }
-
   requestAnimationFrame(draw);
 })();
 </script>
