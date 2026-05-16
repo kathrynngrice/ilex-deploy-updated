@@ -36,7 +36,7 @@
     width: 100vw;
     background: radial-gradient(
       ellipse 50% 55% at center,
-      rgba(244, 237, 224, 0.7) 50%,
+      rgba(244, 237, 224, 0.35) 50%,
       transparent 100%
     );
     pointer-events: none;
@@ -186,13 +186,15 @@
   resize();
   window.addEventListener('resize', resize);
 
+  /* Alpha is graduated by position within each band, scaled by intensity=29 */
+  const INT = 29;
   function color(norm) {
-    if (norm > 0.75) return 'rgba(224,227,242,0.35)';   /* pale periwinkle highlight */
-    if (norm > 0.62) return 'rgba(158,165,200,0.35)';   /* dusty blue-purple */
-    if (norm > 0.50) return 'rgba(148,155,188,0.35)';   /* cooler blue-purple */
-    if (norm > 0.40) return 'rgba(200,128,88,0.35)';    /* ember terracotta */
-    if (norm > 0.26) return 'rgba(162,92,60,0.35)';     /* deep ember */
-    return               'rgba(72,74,108,0.35)';         /* dark blue-plum shadow */
+    if (norm > 0.75) return `rgba(224,227,242,${(((norm-0.75)/0.25)*INT*0.018).toFixed(3)})`;
+    if (norm > 0.62) return `rgba(158,165,200,${(((norm-0.62)/0.13)*INT*0.011).toFixed(3)})`;
+    if (norm > 0.50) return `rgba(148,155,188,${(((norm-0.50)/0.12)*INT*0.010).toFixed(3)})`;
+    if (norm > 0.40) return `rgba(200,128,88,${(((norm-0.40)/0.10)*INT*0.012).toFixed(3)})`;
+    if (norm > 0.26) return `rgba(162,92,60,${(((0.40-norm)/0.14)*INT*0.013).toFixed(3)})`;
+    return                  `rgba(72,74,108,${(((0.26-norm)/0.26)*INT*0.015).toFixed(3)})`;
   }
 
   let start = null;
