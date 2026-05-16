@@ -32,7 +32,21 @@
   
   .section-fade {
     position: relative;
+    padding-top: 140px;
+    padding-bottom: 140px;
   }
+  
+  /* Reset inner section padding so it doesn't stack on top of the wrapper's */
+  div.section-fade > section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  
+  /* Breathing room between "Who this is for" and "A question to sit with" */
+  div.section-fade > section + section {
+    margin-top: var(--space-8);
+  }
+  
   .section-fade::before {
     content: '';
     position: absolute;
@@ -44,15 +58,15 @@
     mask-image: linear-gradient(
       to bottom,
       transparent,
-      black 160px,
-      black calc(100% - 160px),
+      black 80px,
+      black calc(100% - 80px),
       transparent
     );
     -webkit-mask-image: linear-gradient(
       to bottom,
       transparent,
-      black 160px,
-      black calc(100% - 160px),
+      black 80px,
+      black calc(100% - 80px),
       transparent
     );
   }
