@@ -36,7 +36,7 @@
     width: 100vw;
     background: radial-gradient(
       ellipse 50% 55% at center,
-      rgba(244, 237, 224, 0.35) 50%,
+      rgba(244, 237, 224, 0.5) 50%,
       transparent 100%
     );
     pointer-events: none;
@@ -187,12 +187,12 @@
   window.addEventListener('resize', resize);
 
   function color(norm) {
-    if (norm > 0.75) return 'rgba(224,227,242,0.9)';   /* pale periwinkle highlight */
-    if (norm > 0.62) return 'rgba(158,165,200,0.9)';   /* dusty blue-purple */
-    if (norm > 0.50) return 'rgba(148,155,188,0.9)';   /* cooler blue-purple */
-    if (norm > 0.40) return 'rgba(200,128,88,0.9)';    /* ember terracotta */
-    if (norm > 0.26) return 'rgba(162,92,60,0.9)';     /* deep ember */
-    return               'rgba(72,74,108,0.9)';         /* dark blue-plum shadow */
+    if (norm > 0.75) return 'rgba(224,227,242,0.6)';   /* pale periwinkle highlight */
+    if (norm > 0.62) return 'rgba(158,165,200,0.6)';   /* dusty blue-purple */
+    if (norm > 0.50) return 'rgba(148,155,188,0.6)';   /* cooler blue-purple */
+    if (norm > 0.40) return 'rgba(200,128,88,0.6)';    /* ember terracotta */
+    if (norm > 0.26) return 'rgba(162,92,60,0.6)';     /* deep ember */
+    return               'rgba(72,74,108,0.6)';         /* dark blue-plum shadow */
   }
 
   let start = null;
