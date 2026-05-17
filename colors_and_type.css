@@ -241,6 +241,11 @@ p {
   font-weight: var(--w-regular);
   color: var(--fg-2);
 }
+.sublead {
+   font-size: 16pc;
+   font-weight: var(--w-regular);
+   color: var(--fg-2);
+}
 
 .small,
 small {
