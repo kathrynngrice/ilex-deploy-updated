@@ -242,7 +242,7 @@ p {
   color: var(--fg-2);
 }
 .sublead {
-   font-size: 16pc;
+   font-size: 16px;
    font-weight: var(--w-regular);
    color: var(--fg-2);
 }
