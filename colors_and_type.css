@@ -240,11 +240,13 @@ p {
   line-height: 1.5;
   font-weight: var(--w-regular);
   color: var(--fg-2);
+   text-align: center;
 }
 .sublead {
    font-size: 16px;
    font-weight: var(--w-regular);
    color: var(--fg-2);
+   text-align: center;
 }
 
 .small,
