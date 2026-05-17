@@ -42,8 +42,8 @@ section.tight { padding: var(--space-7) 0; }
 }
 .btn-primary { background: var(--accent-primary); color: var(--bark-50) !important; }
 .btn-primary:hover { background: var(--accent-press); color: var(--bark-50); }
-.btn-secondary { background: transparent; color: var(--bark-50); border-color: var(--line-medium); }
-.btn-secondary:hover { background: var(--surface-sunk); color: var(--bark-50); }
+.btn-secondary { background: transparent; color: var(--fg-1); border-color: var(--line-medium); }
+.btn-secondary:hover { background: var(--surface-sunk); color: var(--fg-1); }
 
 /* ---------------------- Hero shared ---------------------- */
 .hero { padding-top: var(--space-9); padding-bottom: var(--space-9); position: relative; }
