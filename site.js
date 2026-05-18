@@ -7,6 +7,7 @@
     { href: 'about.html', label: 'About' },
     { href: 'services.html', label: 'Services' },
     { href: 'testimonials.html', label: 'Testimonials' },
+    { href: 'resources.html', label: 'Resources' },
   ];
 
   function currentPage() {
