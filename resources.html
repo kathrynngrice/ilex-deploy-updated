@@ -25,6 +25,19 @@
     opacity: 0.25;
   }
 
+.hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.30), rgba(0,0,0,0.60));
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-section .copy {
+  position: relative;
+  z-index: 1;
+}
+
   .resource-card { display: block; text-decoration: none; color: inherit; transition: box-shadow 0.15s ease, border-color 0.15s ease; }
   .resource-card:hover { box-shadow: var(--shadow-rest); border-color: var(--accent-primary); }
   .resource-card .tag { font-family: var(--font-mono); font-size: var(--t-caption); color: var(--accent-primary); margin-bottom: var(--space-3); }
@@ -37,13 +50,14 @@
 
 <main>
   <div class="container">
-
-    <section class="hero-section"; height: 500px;">
-      <span class="eyebrow">Resources</span>
-      <h1 style="margin-top: var(--space-4); max-width: 22ch;">Resources related to the practice.</h1>
-      <p class="lead" style="margin-top: var(--space-5); max-width: 52ch;">Grounded in my training and the work I do with clients.</p>
-    </section>
-
+    <div class="copy">
+      <section class="hero-section"; height: 500px;">
+        <span class="eyebrow">Resources</span>
+        <h1 style="margin-top: var(--space-4); max-width: 22ch;">Resources related to the practice.</h1>
+        <p class="lead" style="margin-top: var(--space-5); max-width: 52ch;">Grounded in my training and the work I do with clients.</p>
+      </section>
+    </div>
+    
     <section class="reflect">
       <div class="label">On these guides</div>
       <p>The best frameworks stick with you, even through a hard conversation.</p>
