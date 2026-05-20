@@ -137,27 +137,40 @@
           <p>Drop a note here, or email <a href="kathrynngrice@gmail.com">kathrynngrice@gmail.com</a>. I read everything within two business days.</p>
           <img src="../assets/logo/ilex-garden-mark.svg" alt="" style="width: 200px; margin-top: var(--space-1); opacity: 0.5;">
         </div>
-        <form class="booking-form" action="https://formspree.io/f/xlgvjpkw" method="POST">
-          <input type="hidden" name="_next" value="https://kathryngrice.com/services#book">
-          <input type="text" name="_gotcha" style="display:none">
+        
+        <form class="booking-form" id="booking-form">
+            <input type="text" name="_gotcha" style="display:none">
+            <div>
+              <label for="bname">Your name</label>
+              <input id="bname" name="name" type="text" required>
+            </div>
+            <div>
+              <label for="bemail">Email</label>
+              <input id="bemail" name="email" type="email" required>
+            </div>
+            <div>
+              <label for="bnote">A sentence or two — what's bringing you here?</label>
+              <textarea id="bnote" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send →</button>
+          </form>
           
-          <div>
-            <label for="bname">Your name</label>
-            <input id="bname" name="name" type="text" required>
-          </div>
-          <div>
-            <label for="bemail">Email</label>
-            <input id="bemail" name="email" type="email" required>
-          </div>
-          <div>
-            <label for="bnote">A sentence or two — what's bringing you here?</label>
-            <textarea id="bnote" name="message" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Send →</button>
-          
+          <script>
+            document.getElementById('booking-form').addEventListener('submit', async function(e) {
+              e.preventDefault();
+              const res = await fetch('https://formspree.io/f/xlgvjpkw', {
+                method: 'POST',
+                body: new FormData(this),
+                headers: { 'Accept': 'application/json' }
+              });
+              if (res.ok) {
+                this.innerHTML = '<p style="padding: var(--space-4) 0;">Thank you — I\'ll be in touch within two business days.</p>';
+              } else {
+                this.querySelector('button').textContent = 'Something went wrong — try emailing me directly.';
+              }
+            });
+          </script>
 
-          
-        </form>
       </div>
     </section>
   </div>
